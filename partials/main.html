@@ -1,9 +1,8 @@
 <div class="row" >
-  <form class="form-group" >
+  <form class="form-group">
     <label for="category">Search by category: </label>
     <select class="" name="category">
       <option ng-model="order" ng-repeat="category in Tea.categories" value="{{category}}" >{{category}}</option>
-
     </select>
     <label for="search" >Search by name: </label>
     <input type="text" name="search" placeholder="Search" ng-model="searchText"></input>
