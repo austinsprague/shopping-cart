@@ -37,17 +37,13 @@
       <p>Rating: {{tea.rating}}</p>
       <p>In Stock: {{tea.inStock}}</p>
       <p>Categories:</p>
-      <ul ng-repeat="category in tea.categories | filter: order: true">
+      <ul ng-repeat="category in tea.categories | filter: order">
         <li>{{category}}</li>
       </ul>
     </div>
     <div class="col-sm-6">
       <div class="col-sm-6">
-        <label for="Quantity">Quantity </label>
-        <select class="" name="quantity">
-          <option value='1'>1</option>
-          <option value='2'>2</option>
-        </select>
+        <input class="form-control" type="number" name="quantity" value="1">Quantity</input>
       </div>
       <div class="col-sm-6">
         <button type="button" name="addToBag" class="btn btn-primary ">Add to Bag</button>
