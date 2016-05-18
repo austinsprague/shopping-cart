@@ -1,0 +1,58 @@
+<div class="row" >
+  <form class="form-group" >
+    <label for="category">Search by category: </label>
+    <select class="" name="category">
+      <option ng-model="order" ng-repeat="category in Tea.categories" value="{{category}}" >{{category}}</option>
+
+    </select>
+    <label for="search" >Search by name: </label>
+    <input type="text" name="search" placeholder="Search" ng-model="searchText"></input>
+  </form>
+</div>
+<div class="row">
+  <div class="col-sm-4">Tea</div>
+  <div class="col-sm-8">
+    <div class="col-sm-7">
+      Information
+    </div>
+    <div class="col-sm-5">
+      <label for="price">Sort by price: </label>
+      <select class="" name="price">
+        <option>$10 or less</option>
+        <option>$10 or more</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row" style="border:solid black 1px" ng-repeat="tea in Tea.teas | filter:searchText">
+  <div class="col-sm-4">
+    <img ng-src="{{tea.imageUrl}}"></img>
+  </div>
+  <div class="col-sm-8" style="border:solid black 1px">
+    <div class="col-sm-6">
+      <h4>{{tea.name}}</h4>
+      <br>
+      <p>Price: {{tea.price}}</p>
+      <p>Caffeine: {{tea.caffeineScale}}</p>
+      <p>Ingredients: {{tea.ingredients}}</p>
+      <p>Rating: {{tea.rating}}</p>
+      <p>In Stock: {{tea.inStock}}</p>
+      <p>Categories:</p>
+      <ul ng-repeat="category in tea.categories | filter: order: true">
+        <li>{{category}}</li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+        <label for="Quantity">Quantity </label>
+        <select class="" name="quantity">
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <button type="button" name="addToBag" class="btn btn-primary ">Add to Bag</button>
+      </div>
+    </div>
+  </div>
+</div>

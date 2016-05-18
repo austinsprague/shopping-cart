@@ -9,18 +9,17 @@
   <body>
     <div class="page-header">
       <h1>Welcome to MEAN Tea</h1>
+      <button type="submit" name="button" class="btn btn-danger" pull-right>Checkout | Bag:  </button>
     </div>
-    <div class="container-fluid">
-      <div ng-include="MainController as Main">
+    <div class="container">
 
-      </div>
       <div ng-view></div>
+
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js" charset="utf-8"></script>
-    <script type="text/javascript" src="app.js"></script>
-    <!-- <script type="text/javascript" src="services.js"></script> -->
-    <!-- <script type="text/javascript" src="controllers/main.js"></script>
-    <script type="text/javascript" src="controllers/info.js"></script> -->
+    <script type="text/javascript" src="routing.js"></script>
+    <script type="text/javascript" src="tea.controller.js"></script>
+    <script type="text/javascript" src="tea.service.js"></script>
   </body>
 </html>
