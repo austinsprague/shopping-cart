@@ -6,14 +6,13 @@
     </select>
     <label for="search" >Search by name: </label>
     <input type="text" name="search" placeholder="Search" ng-model="searchText"></input>
+    <a type="submit" name="checkout" ng-href="/checkout" class="btn btn-danger" ng-href="/checkout"><span class="glyphicon glyphicon-shopping-cart" ></span> Checkout | Bag:{{Tea.getCart.length}}</a>
   </form>
 </div>
 <div class="row">
   <div class="col-sm-4">Tea</div>
   <div class="col-sm-8">
-    <div class="col-sm-7">
-      Information
-    </div>
+    <div class="col-sm-7">Information</div>
     <div class="col-sm-5">
       <label for="price">Sort by price: </label>
       <select class="" name="price">
@@ -46,7 +45,7 @@
         <input class="form-control" type="number" name="quantity" value="1">Quantity</input>
       </div>
       <div class="col-sm-6">
-        <button type="button" name="addToBag" class="btn btn-primary ">Add to Bag</button>
+        <button type="button" name="addToBag" class="btn btn-primary" ng-click="Tea.addCart(tea)">Add to Bag</button>
       </div>
     </div>
   </div>

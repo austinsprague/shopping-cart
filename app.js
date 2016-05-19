@@ -11,6 +11,11 @@
       controllerAs: 'Tea',
       templateUrl: 'partials/main.html'
     }).
+    when('/checkout', {
+      controller: 'CheckoutController',
+      controllerAs: 'Checkout',
+      templateUrl: 'partials/checkout.html'
+  }).
     otherwise({
       redirectTo: '/'
     })
