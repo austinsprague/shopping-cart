@@ -5,7 +5,9 @@
 
   function CheckoutController($location, TeaService){
     vm = this;
-    vm.getCart = TeaService.getCart;
+    vm.cart = TeaService.getCart();
+
+
 
 
   }

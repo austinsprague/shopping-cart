@@ -1,4 +1,6 @@
-<div class="row" style="border:solid black 1px" ng-repeat="tea in Tea.teas | filter:searchText">
+<h1>This is the checkout page</h1>
+
+<div class="row" style="border:solid black 1px" ng-repeat="tea in Checkout.cart">
   <div class="col-sm-4">
     <img ng-src="{{tea.imageUrl}}"></img>
   </div>
@@ -18,7 +20,7 @@
     </div>
     <div class="col-sm-6">
       <div class="col-sm-6">
-        <input class="form-control" type="number" name="quantity" value="1">Quantity</input>
+        <input class="form-control" type="text" name="quantity" value="{{tea.quantity}}">Quantity</input>
       </div>
       <div class="col-sm-6">
         <button type="button" name="addToBag" class="btn btn-primary ">Add to Bag</button>
