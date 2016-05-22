@@ -1,30 +1,24 @@
-<h1>This is the checkout page</h1>
+<h1>CHECKOUT</h1>
 
 <div class="row" style="border:solid black 1px" ng-repeat="tea in Checkout.cart">
-  <div class="col-sm-4">
-    <img ng-src="{{tea.imageUrl}}"></img>
-  </div>
-  <div class="col-sm-8" style="border:solid black 1px">
-    <div class="col-sm-6">
-      <h4>{{tea.name}}</h4>
-      <br>
-      <p>Price: {{tea.price}}</p>
-      <p>Caffeine: {{tea.caffeineScale}}</p>
-      <p>Ingredients: {{tea.ingredients}}</p>
-      <p>Rating: {{tea.rating}}</p>
-      <p>In Stock: {{tea.inStock}}</p>
-      <p>Categories:</p>
-      <ul ng-repeat="category in tea.categories | filter: order">
-        <li>{{category}}</li>
-      </ul>
+  <div class="col-sm-4"><img ng-src="{{tea.imageUrl}}" height="100px">{{tea.name}}</img></div>
+  <div class="col-sm-8">
+    <div class="col-sm-4">
+      <h5>Ingredients: {{tea.ingredients}}</h5>
+      <h5>In Stock: {{tea.inStock}}</h5>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
       <div class="col-sm-6">
-        <input class="form-control" type="text" name="quantity" value="{{tea.quantity}}">Quantity</input>
+        <h4>Qty:</h4>
+        <input class="form-control" type="number" name="quantity" ng-model="quantity" value="{{tea.quantity}}"></input>
+        <a class="btn btn-warning" ng-click="Checkout.updateQty(tea,quantity)">Update Qty</a>
+        <a class="btn btn-warning" ng-click="Checkout.delete(tea)">Delete</a>
       </div>
-      <div class="col-sm-6">
-        <button type="button" name="addToBag" class="btn btn-primary ">Add to Bag</button>
-      </div>
+        <h3 ng-model="subtotal">Item total: {{tea.price * tea.quantity/100 | currency }}</h3>
+
+
     </div>
+
+    <h5>Cart: {{Checkout.cartQuantity}}</h5>
   </div>
 </div>

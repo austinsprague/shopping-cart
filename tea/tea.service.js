@@ -7,6 +7,7 @@
     var teas = [];
     var cart = [];
     var categories = [];
+    var teaTotal = 0;
     var resolvedData = false;
 
     return {
@@ -39,6 +40,7 @@
       },
       addCart: function (tea, qty) {
         var teaIndex = cart.indexOf(tea);
+        // cart.quantity = (cart.quantity || 0) + qty;
 
         if(teaIndex == -1){
           tea.quantity = tea.quantity + qty;
@@ -51,6 +53,18 @@
       },
       getCart: function(){
         return cart;
+      // },
+      // getCartQuantity: function(){
+      //   return cart.quantity;
+      },
+      getCartTotal: function(){
+        angular.forEach(cart, function(tea){
+          teaTotal = teaTotal + (tea.quantity * tea.price/100);
+          return teaTotal;
+        })
+      },
+      deleteCartItem: function(item){
+        cart.splice(cart.indexOf(item), 1);
       }
     }
   }

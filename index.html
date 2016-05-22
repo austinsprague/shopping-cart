@@ -8,11 +8,21 @@
   </head>
   <body>
     <div class="page-header">
-      <h1>Welcome to MEAN Tea</h1>
-      <!-- <button type="submit" name="button" class="btn btn-danger" ><span class="glyphicon glyphicon-shopping-cart" ></span> Checkout | Bag:  </button> -->
+      <div class="row">
+        <div class="col-sm-9">
+          <h1>Welcome to MEAN Tea</h1>
+        </div>
+        <div class="col-sm-3">
+
+          <a name="checkout" ng-href="/checkout"><span class="glyphicon glyphicon-shopping-cart" ></span> Checkout | Bag: {{Tea.teas.quantity}} </a>
+        </div>
+
+      </div>
+
+
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
 
       <div ng-view></div>
 
