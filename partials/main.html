@@ -1,42 +1,46 @@
-<div class="row" >
-  <form class="form-group">
-    <label for="category">Filter by category: </label>
-    <select class="" ng-model="searchCategory" name="category">
-      <option>{{Tea.category}}</option>
-      <option ng-repeat="category in Tea.categories">{{category}}</option>
-    </select>
-    <label for="price">Sort by price: </label>
-    <label for="search" >Search by name: </label>
-      <input type="text" name="search" placeholder="Search" ng-model="searchText"></input>
-  </form>
+<div>
+  <label for="category">Filter by category: </label>
+  <select ng-model="searchCategory" name="category">
+    <option>{{Tea.category}}</option>
+    <option ng-repeat="category in Tea.categories">{{category}}</option>
+  </select>
+  <label for="price">Sort by price: </label>
+  <label for="search" >Search by name: </label>
+  <input type="text" name="search" placeholder="Search" ng-model="searchText"></input>
+  <a class="checkoutButton" name="checkout" ng-href="/checkout"><span class="glyphicon glyphicon-shopping-cart" ></span> Checkout | Bag: {{Tea.teas.quantity}} </a>
 </div>
-<div class="row">
-  <div class="col-sm-4">Tea</div>
-  <div class="col-sm-8">Information</div>
-</div>
-<div class="row" style="border:solid black 1px" ng-repeat="tea in Tea.teas | filter:searchText | filter:searchCategory">
-  <div class="col-sm-4"><img ng-src="{{tea.imageUrl}}"></img></div>
-  <div class="col-sm-8" style="border:solid black 1px">
-    <div class="col-sm-6">
-      <h4>{{tea.name}}</h4>
-      <br>
-      <p>Price: {{tea.price/100 | currency}}</p>
-      <p>Caffeine: {{tea.caffeineScale}}</p>
-      <p>Ingredients: {{tea.ingredients}}</p>
-      <p>Rating: {{tea.rating}}</p>
-      <p>In Stock: {{tea.inStock}}</p>
-      <p>Categories:</p>
-      <ul ng-repeat="category in tea.categories">
-        <li>{{category}}</li>
-      </ul>
-    </div>
-    <div class="col-sm-6">
-      <div class="col-sm-6">
-        <input class="form-control" ng-init="quantity = 1" type="number" name="quantity" ng-model="quantity">Quantity</input>
+<section class="container">
+  <div class="row" style="border-bottom:solid grey 1px">
+    <div class="col-sm-4">Tea</div>
+    <div class="col-sm-8">Information</div>
+  </div>
+  <div class="row" style="border-bottom:solid grey 1px" ng-repeat="tea in Tea.teas | filter:searchText | filter:searchCategory">
+    <div class="col-sm-3"><img ng-src="{{tea.imageUrl}}"></img></div>
+    <div class="col-sm-9" >
+      <div class="col-sm-8">
+        <h3>{{tea.name}}</h3>
+        <h4>{{tea.price/100 | currency}}</h4>
+        <h5><span class="glyphicon glyphicon-star"></span>Rating: {{tea.rating}}</h5>
+        <br>
+        <h5>Caffeine: {{tea.caffeineScale}}</h5>
+        <h5>Ingredients: {{tea.ingredients}}</h5>
+
+        <h5>In Stock: {{tea.inStock}}</h5>
+        <h5>Categories:</h5>
+        <h6 ng-repeat="category in tea.categories">
+          {{category}}
+        </h6>
       </div>
-      <div class="col-sm-6">
-        <button type="button" name="addToBag" class="btn btn-primary" ng-click="Tea.addCart(tea, quantity)">Add to Bag</button>
+      <div class="col-sm-4" id="addCart">
+        <label for="quantity">Quantity</label>
+        <div class="input-group">
+          <input class="form-control" ng-init="quantity = 1" type="number" name="quantity" ng-model="quantity"></input>
+          <span class="input-group-btn">
+            <button type="button" name="addToBag" class="btn btn-primary" ng-click="Tea.addCart(tea, quantity)">Add to Bag</button>
+          </span>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

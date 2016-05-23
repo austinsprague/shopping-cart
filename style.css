@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+}
+
+.row{
+  /*margin-top: 10px;*/
+  border-bottom: solid grey 1px;
+}
+.checkoutButton {
+  float: right;
+}
+
+input {
+  font-size: 20px;
+}
+
+#addCart {
+  position: absolute;
+  top: 20%;
+  left:70%;
+}
