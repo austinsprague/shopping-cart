@@ -1,3 +1,4 @@
+<a href="/"><span class="glyphicon glyphicon-menu-left"></span>Continue Shopping</a>
 <h1>CHECKOUT</h1>
 
 <div class="row" style="border:solid black 1px" ng-repeat="tea in Checkout.cart">
@@ -9,12 +10,14 @@
     </div>
     <div class="col-sm-8">
       <div class="col-sm-6">
-        <h4>Qty:</h4>
+        <label>Qty:</label>
         <input class="form-control" type="number" name="quantity" ng-model="quantity" value="{{tea.quantity}}"></input>
-        <a class="btn btn-warning" ng-click="Checkout.updateQty(tea,quantity)">Update Qty</a>
-        <a class="btn btn-warning" ng-click="Checkout.delete(tea)">Delete</a>
+        <a class="btn btn-warning" ng-click="Checkout.updateQty(tea,quantity)">Update</a>
+        <br>
+
       </div>
-        <h3 ng-model="subtotal">Item total: {{tea.price * tea.quantity/100 | currency }}</h3>
+        <p ng-model="subtotal">Item total: {{tea.price * tea.quantity/100 | currency }}</p>
+        <a ng-click="Checkout.delete(tea)">Delete</a>
 
 
     </div>
