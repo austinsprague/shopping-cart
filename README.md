@@ -1,5 +1,4 @@
 IN Progress
--search by category
 -search by price
 -totalling
 -bag count
